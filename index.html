@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    
+    <div id="app">
+        <h1>메모</h1>
+        <input type="text" class="t" v-model="title">
+        <textarea class="x" v-model="memo"></textarea> 
+        <button @click="addMemo">추가</button>
+        <memocomponent v-for="m in memolist" v-bind:title="m.title" v-bind:id="m.id" @delete="deleteMemo">
+            {{m.memo}}
+            <hr>
+        </memocomponent>
+    </div>
+
+    <script>
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+    </script>
+    <script src="./component/component.js"></script>
+    <script src="./main.js"></script>
+
+</body>
+</html>
